@@ -1,18 +1,29 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Heading } from '@org/components';
 import { LoadingSpinner } from '@org/shop-shared-ui';
 import './app.css';
 
 // Lazy load feature components
-const ProductList = lazy(() => import('@org/shop-feature-products').then(m => ({ default: m.ProductList })));
-const ProductDetail = lazy(() => import('@org/shop-feature-product-detail').then(m => ({ default: m.ProductDetail })));
+const ProductList = lazy(() =>
+  import('@org/shop-feature-products').then((m) => ({
+    default: m.ProductList,
+  })),
+);
+const ProductDetail = lazy(() =>
+  import('@org/shop-feature-product-detail').then((m) => ({
+    default: m.ProductDetail,
+  })),
+);
 
 export function App() {
   return (
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1 className="app-title">Nx Shop Demo</h1>
+          <Heading level={1} className="app-title">
+            Nx Shop Demo
+          </Heading>
         </div>
       </header>
 
