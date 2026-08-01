@@ -1,5 +1,7 @@
 import { FinalCta, PageHero, SectionHeader } from '@org/components/site';
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import executivePortrait from '../../../assets/exec-pic.png';
 export const metadata: Metadata = {
   title: 'About Courtney Revada & ThriveForward',
   description:
@@ -16,15 +18,14 @@ export default function AboutPage() {
       />
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[.7fr_1.3fr] lg:px-12">
-          <div className="grid min-h-[520px] place-items-center border border-zinc-300 bg-[#f3f1eb]">
-            <div className="text-center">
-              <span className="text-8xl font-bold tracking-tight text-zinc-300">
-                CR
-              </span>
-              <p className="mt-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
-                Professional portrait forthcoming
-              </p>
-            </div>
+          <div className="relative min-h-[520px] overflow-hidden border border-zinc-300 bg-[#f3f1eb]">
+            <Image
+              alt="ThriveForward Consulting executive portrait"
+              className="object-cover object-top"
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              src={executivePortrait}
+            />
           </div>
           <div>
             <SectionHeader

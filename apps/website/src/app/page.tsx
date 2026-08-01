@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { BrainCircuit, Code2, Mic2, UsersRound } from 'lucide-react';
 import {
   CaseStudyCard,
@@ -20,6 +21,7 @@ import {
   insights,
   services,
 } from '../content/site';
+import executivePortrait from '../../assets/exec-pic.png';
 
 export const metadata: Metadata = {
   title: {
@@ -164,15 +166,14 @@ export default function HomePage() {
 
       <section className="border-y border-zinc-200 bg-white py-20 sm:py-28">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[.65fr_1.35fr] lg:px-12">
-          <div className="grid min-h-96 place-items-center border border-zinc-300 bg-[#f3f1eb]">
-            <div className="text-center">
-              <span className="text-7xl font-bold tracking-tight text-zinc-300">
-                CR
-              </span>
-              <p className="mt-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
-                Professional portrait forthcoming
-              </p>
-            </div>
+          <div className="relative min-h-96 overflow-hidden border border-zinc-300 bg-[#f3f1eb]">
+            <Image
+              alt="ThriveForward Consulting executive portrait"
+              className="object-cover object-top"
+              fill
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              src={executivePortrait}
+            />
           </div>
           <div>
             <SectionHeader
