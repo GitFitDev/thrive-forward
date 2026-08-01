@@ -1,0 +1,11 @@
+{
+  "name": "@org/website-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "website"
+    ],
+    "name": "website-e2e"
+  }
+}

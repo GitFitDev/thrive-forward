@@ -70,7 +70,6 @@
     "apps/*",
     "packages/api/products",
     "packages/shared/*",
-    "packages/shop/*",
     "packages/*"
   ]
 }

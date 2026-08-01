@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@source '../../../packages/components/src';
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  color: #06131d;
+  background: #55e6ce;
+}
