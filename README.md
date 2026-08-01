@@ -1,6 +1,6 @@
 # ThriveForward Consulting Website
 
-The public website for **ThriveForward Consulting LLC**, built with React, TypeScript, Vite, Tailwind CSS, and Nx.
+The public website for **ThriveForward Consulting LLC**, built with Next.js App Router, React, TypeScript, Tailwind CSS, and Nx. Shared Catalyst/Tailwind UI components live in `packages/components`.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ npm install
 ## Run the website locally
 
 ```bash
-npm exec nx -- run website:serve
+npm exec nx -- run website:dev
 ```
 
 Open [http://localhost:4200](http://localhost:4200) in your browser.
@@ -31,26 +31,12 @@ The development server supports hot reload, so saved changes appear without rest
 npm exec nx -- run website:build
 ```
 
-The production files are written to `apps/website/dist`.
+The optimized application is written to `apps/website/.next`.
 
 To preview the production build locally:
 
 ```bash
-npm exec nx -- run website:preview
-```
-
-## Test the website
-
-Run the website unit tests:
-
-```bash
-npm exec nx -- run website:test
-```
-
-Run tests in watch mode:
-
-```bash
-npm exec nx -- run website:test -- --watch
+npm exec nx -- run website:start
 ```
 
 ## Run end-to-end tests
@@ -81,16 +67,22 @@ Lint the website:
 npm exec nx -- run website:lint
 ```
 
-Run type-checking and linting together:
+Type-check the shared component library:
 
 ```bash
-npm exec nx -- run-many -t typecheck,lint -p website,website-e2e
+npm exec nx -- run components:typecheck
+```
+
+Run website and component checks together:
+
+```bash
+npm exec nx -- run-many -t typecheck,lint -p website,components
 ```
 
 Format the website projects:
 
 ```bash
-npm exec nx -- format:write --projects=website,website-e2e
+npm exec nx -- format:write --projects=website,website-e2e,components
 ```
 
 ## Useful Nx commands
@@ -116,14 +108,14 @@ npm exec nx -- show projects
 Run a target only for projects affected by the current changes:
 
 ```bash
-npm exec nx -- affected -t typecheck,lint,test,build
+npm exec nx -- affected -t typecheck,lint,build,e2e
 ```
 
 ## Main project structure
 
 ```text
 apps/
-├── website/          ThriveForward React website
+├── website/          ThriveForward Next.js website
 └── website-e2e/      Playwright end-to-end tests
 
 packages/
@@ -136,11 +128,17 @@ The workspace also contains an API project and shared packages that are independ
 
 ### Port 4200 is already in use
 
-Stop the process using port 4200, or run Vite with another port:
+Stop the process using port 4200, or run Next.js with another port:
 
 ```bash
-npm exec nx -- run website:serve -- --port=4300
+npm exec nx -- run website:dev -- --port 4300
 ```
+
+### Configure the canonical site URL
+
+Copy `apps/website/.env.example` to `apps/website/.env.local` and update `NEXT_PUBLIC_SITE_URL` for the deployment domain. It controls canonical URLs, structured data, the sitemap, and robots metadata.
+
+The contact form currently uses a local confirmation adapter. Connect it to a secure CRM or email provider before production launch.
 
 ### Nx reports that the workspace is out of sync
 
