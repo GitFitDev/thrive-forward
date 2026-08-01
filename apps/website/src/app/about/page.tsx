@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { FinalCta, PageHero, SectionHeader } from '@org/components/site';
+import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Courtney Revada & ThriveForward',
   description:
@@ -39,13 +39,13 @@ export default function AboutPage() {
                 translate ambitious ideas into executable strategies.
               </p>
               <p>
-                Her experience spans software engineering, artificial
+                His experience spans software engineering, artificial
                 intelligence, engineering management, product strategy,
                 organizational leadership, and enterprise transformation.
               </p>
               <p>
                 Courtney brings technical depth, executive communication, and
-                people-centered leadership. She understands how to design the
+                people-centered leadership. He understands how to design the
                 solution, guide the team, communicate with stakeholders, and
                 create the systems required for sustainable delivery.
               </p>
