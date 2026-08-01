@@ -9,6 +9,7 @@
     ],
     "targets": {
       "typecheck": {
+        "dependsOn": ["^typecheck"],
         "command": "tsc --noEmit",
         "options": {
           "cwd": "apps/website"
