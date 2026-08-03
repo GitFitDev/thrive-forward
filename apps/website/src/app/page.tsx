@@ -182,7 +182,7 @@ export default function HomePage() {
               copy="Courtney Revada is a technology and engineering leader with experience building digital products, modernizing enterprise systems, leading engineering organizations, and helping teams translate ambitious ideas into executable strategies."
             />
             <p className="mt-7 max-w-3xl text-base leading-8 text-zinc-600">
-              Her work spans software engineering, artificial intelligence,
+              His work spans software engineering, artificial intelligence,
               engineering management, product strategy, organizational
               leadership, and enterprise transformation—with a people-centered
               approach to sustainable delivery.
