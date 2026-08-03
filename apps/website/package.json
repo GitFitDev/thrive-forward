@@ -9,7 +9,9 @@
     ],
     "targets": {
       "typecheck": {
-        "dependsOn": ["^typecheck"],
+        "dependsOn": [
+          "^typecheck"
+        ],
         "command": "tsc --noEmit",
         "options": {
           "cwd": "apps/website"
@@ -20,6 +22,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.6.0",
     "@org/components": "^0.0.1",
+    "@supabase/supabase-js": "^2.112.0",
     "lucide-react": "^1.28.0",
     "next": "^16.2.12",
     "react": "^19.0.0",

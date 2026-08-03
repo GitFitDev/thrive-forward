@@ -1,6 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import { BrainCircuit, Code2, Mic2, UsersRound } from 'lucide-react';
 import {
   CaseStudyCard,
   EngagementCard,
@@ -13,6 +10,10 @@ import {
   ServiceCard,
   StatsGrid,
 } from '@org/components/site';
+import { BrainCircuit, Code2, Mic2, UsersRound } from 'lucide-react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import executivePortrait from '../../assets/exec-pic.png';
 import {
   caseStudies,
   challenges,
@@ -21,7 +22,6 @@ import {
   insights,
   services,
 } from '../content/site';
-import executivePortrait from '../../assets/exec-pic.png';
 
 export const metadata: Metadata = {
   title: {
@@ -193,7 +193,7 @@ export default function HomePage() {
               </a>
               <a
                 className="font-bold text-zinc-950"
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/courtney-revada-3135ba13a/"
               >
                 LinkedIn →
               </a>

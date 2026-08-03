@@ -14,28 +14,11 @@ import {
 import { CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-const schema = z.object({
-  name: z.string().min(2, 'Please enter your full name.'),
-  email: z.string().email('Please enter a valid work email.'),
-  company: z.string().min(2, 'Please enter your company.'),
-  title: z.string().optional(),
-  website: z
-    .string()
-    .url('Enter a full URL including https://')
-    .or(z.literal(''))
-    .optional(),
-  service: z.string().min(1, 'Choose the service that best fits.'),
-  description: z
-    .string()
-    .min(20, 'Please share at least 20 characters about the project.'),
-  challenge: z.string().optional(),
-  budget: z.string().optional(),
-  startDate: z.string().optional(),
-  referral: z.string().optional(),
-});
-type FormValues = z.infer<typeof schema>;
+import {
+  inquirySchema,
+  type InquiryFormValues,
+  submitInquiry,
+} from '../lib/inquiries';
 const services = [
   'AI Strategy and Implementation',
   'Custom Software Development',
@@ -58,11 +41,31 @@ const budgets = [
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<InquiryFormValues>({
+    defaultValues: { contactPreference: '' },
+    resolver: zodResolver(inquirySchema),
+  });
+
+  const onSubmit = async (values: InquiryFormValues) => {
+    setSubmissionError('');
+
+    try {
+      await submitInquiry(values);
+      reset();
+      setSubmitted(true);
+    } catch {
+      setSubmissionError(
+        'We could not send your inquiry right now. Please try again in a moment.',
+      );
+    }
+  };
+
   if (submitted)
     return (
       <div className="border border-zinc-300 bg-white p-8 sm:p-12">
@@ -74,9 +77,8 @@ export function ContactForm() {
           Thank you. We&apos;ll be in touch.
         </h2>
         <p className="mt-5 max-w-xl leading-8 text-zinc-600">
-          This confirmation demonstrates the completed experience. Connect the
-          form adapter to your selected CRM or email provider before launch to
-          route submissions securely.
+          Your inquiry has been securely received. We&apos;ll review the details
+          and respond with the clearest next step.
         </p>
         <button
           className="mt-8 font-bold text-rose-600"
@@ -90,10 +92,19 @@ export function ContactForm() {
   return (
     <form
       className="border border-zinc-300 bg-white p-6 sm:p-10"
-      onSubmit={handleSubmit(() => setSubmitted(true))}
+      onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
       <FieldGroup>
+        <div hidden>
+          <label htmlFor="contact-preference">Contact preference</label>
+          <input
+            id="contact-preference"
+            {...register('contactPreference')}
+            autoComplete="off"
+            tabIndex={-1}
+          />
+        </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <Field>
             <Label>Full name</Label>
@@ -178,12 +189,25 @@ export function ContactForm() {
           <Label>How did you hear about ThriveForward?</Label>
           <Input {...register('referral')} />
         </Field>
-        <Button className="w-full justify-center" color="red" type="submit">
-          Send Your Inquiry
+        {submissionError && (
+          <p
+            className="text-center text-sm font-semibold text-red-700"
+            role="alert"
+          >
+            {submissionError}
+          </p>
+        )}
+        <Button
+          className="w-full justify-center"
+          color="red"
+          disabled={isSubmitting}
+          type="submit"
+        >
+          {isSubmitting ? 'Sending…' : 'Send Your Inquiry'}
         </Button>
         <p className="text-center text-xs leading-5 text-zinc-500">
-          Your information is used only to respond to this inquiry. Connect a
-          secure form provider before production launch.
+          Your information is stored securely and used only to evaluate and
+          respond to this inquiry.
         </p>
       </FieldGroup>
     </form>

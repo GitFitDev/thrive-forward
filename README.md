@@ -4,7 +4,7 @@ The public website for **ThriveForward Consulting LLC**, built with Next.js App 
 
 ## Prerequisites
 
-- Node.js 20 or newer
+- Node.js 22 or newer
 - npm
 
 ## Install dependencies
@@ -124,6 +124,44 @@ packages/
 
 The workspace also contains an API project and shared packages that are independent of the website.
 
+## Configuration
+
+### Configure the canonical site URL
+
+Copy `apps/website/.env.example` to `apps/website/.env.local` and update `NEXT_PUBLIC_SITE_URL` for the deployment domain. It controls canonical URLs, structured data, the sitemap, and robots metadata.
+
+### Configure inquiry storage
+
+Contact inquiries are stored in a Supabase Postgres database. The public site
+can insert records, but row-level security prevents visitors from reading,
+updating, or deleting inquiry data.
+
+1. Create a Supabase project.
+2. Run `supabase/migrations/20260803000000_create_inquiries.sql` in the
+   Supabase SQL Editor.
+3. Copy `apps/website/.env.example` to `apps/website/.env.local`.
+4. Add the project URL and publishable key from the Supabase Connect dialog:
+
+```dotenv
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your-key
+```
+
+The publishable key is designed for browser use. Never add a Supabase secret
+key or legacy `service_role` key to a `NEXT_PUBLIC_` variable.
+
+For GitHub Pages deployment, create these repository Actions variables under
+**Settings → Secrets and variables → Actions → Variables**:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+
+The Pages workflow includes those values in the static build. Submitted rows
+are available in the Supabase Table Editor under `public.inquiries`.
+
+Before a public launch, consider adding Cloudflare Turnstile or an equivalent
+anti-spam challenge in front of anonymous submissions.
+
 ## Common issues
 
 ### Port 4200 is already in use
@@ -133,12 +171,6 @@ Stop the process using port 4200, or run Next.js with another port:
 ```bash
 npm exec nx -- run website:dev -- --port 4300
 ```
-
-### Configure the canonical site URL
-
-Copy `apps/website/.env.example` to `apps/website/.env.local` and update `NEXT_PUBLIC_SITE_URL` for the deployment domain. It controls canonical URLs, structured data, the sitemap, and robots metadata.
-
-The contact form currently uses a local confirmation adapter. Connect it to a secure CRM or email provider before production launch.
 
 ### Nx reports that the workspace is out of sync
 

@@ -24,15 +24,17 @@ export default function PrivacyPage() {
         <p className="mt-4">
           When you submit an inquiry, ThriveForward may collect the information
           you voluntarily provide so we can respond, qualify the request, and
-          improve our services.
+          improve our services. Inquiry information is stored with our database
+          service provider and is not available for public access through this
+          website.
         </p>
         <h2 className="mt-10 text-2xl font-bold text-zinc-950">
           How information is used
         </h2>
         <p className="mt-4">
-          Information should be used only to respond to inquiries, provide
-          requested services, maintain business records, and meet applicable
-          legal obligations.
+          Information is used only to respond to inquiries, provide requested
+          services, maintain business records, and meet applicable legal
+          obligations.
         </p>
         <h2 className="mt-10 text-2xl font-bold text-zinc-950">Questions</h2>
         <p className="mt-4">

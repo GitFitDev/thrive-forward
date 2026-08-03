@@ -36,6 +36,8 @@ jobs:
         working-directory: apps/website
         env:
           NEXT_PUBLIC_SITE_URL: https://thriveforward.tech
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Preserve custom domain
         run: cp CNAME apps/website/out/CNAME

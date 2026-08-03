@@ -26,6 +26,19 @@ test.describe('ThriveForward website', () => {
   });
 
   test('submits the qualification form', async ({ page }) => {
+    await page.route(
+      'https://example.supabase.co/rest/v1/inquiries**',
+      async (route) => {
+        expect(route.request().postDataJSON()).toMatchObject({
+          name: 'Jordan Lee',
+          email: 'jordan@example.com',
+          company: 'Example Co',
+          service: 'AI Strategy and Implementation',
+          project_description: 'We need a practical AI roadmap.',
+        });
+        await route.fulfill({ status: 201, body: '' });
+      },
+    );
     await page.goto('/contact');
     await page.getByLabel('Full name').fill('Jordan Lee');
     await page.getByLabel('Work email').fill('jordan@example.com');
