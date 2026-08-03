@@ -79,7 +79,9 @@ export function HomeHero({
           {copy}
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/contact">Book a Strategy Call</ButtonLink>
+          <ButtonLink href="https://cal.com/courtney-revada-i4wwtz/30min">
+            Book a Strategy Call
+          </ButtonLink>
           <ButtonLink href="/services" secondary>
             Explore Our Capabilities
           </ButtonLink>
@@ -188,19 +190,37 @@ export function ServiceCard({
 export function EngagementCard({
   title,
   duration,
+  price,
+  priceNote,
+  cta,
   copy,
   includes,
 }: {
   title: string;
   duration: string;
+  price?: string;
+  priceNote?: string;
+  cta?: string;
   copy: string;
   includes: string[];
 }) {
   return (
     <article className="flex h-full flex-col border border-zinc-300 bg-[#fbfaf6] p-7">
-      <p className="text-xs font-bold uppercase tracking-widest text-rose-600">
-        {duration}
-      </p>
+      <div className="flex items-start justify-between gap-5">
+        <p className="text-xs font-bold uppercase tracking-widest text-rose-600">
+          {duration}
+        </p>
+        {price && (
+          <p className="text-right">
+            <span className="block text-2xl font-bold tracking-tight text-zinc-950">
+              {price}
+            </span>
+            <span className="mt-1 block text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+              {priceNote}
+            </span>
+          </p>
+        )}
+      </div>
       <h3 className="mt-5 text-2xl font-bold tracking-tight text-zinc-950">
         {title}
       </h3>
@@ -214,7 +234,7 @@ export function EngagementCard({
         className="mt-8 font-bold text-zinc-950 hover:text-rose-600"
         href="/contact"
       >
-        Discuss this engagement →
+        {cta ?? 'Discuss this engagement →'}
       </a>
     </article>
   );
@@ -225,12 +245,14 @@ export function CaseStudyCard({
   title,
   challenge,
   approach,
+  targetOutcome,
   capabilities,
 }: {
   category: string;
   title: string;
   challenge: string;
   approach: string;
+  targetOutcome: string;
   capabilities: string;
 }) {
   return (
@@ -251,8 +273,8 @@ export function CaseStudyCard({
           <dd className="text-zinc-600">{approach}</dd>
         </div>
         <div>
-          <dt className="font-bold text-zinc-950">Outcome</dt>
-          <dd className="text-zinc-500">Approved metrics forthcoming.</dd>
+          <dt className="font-bold text-zinc-950">Target outcome</dt>
+          <dd className="text-zinc-600">{targetOutcome}</dd>
         </div>
       </dl>
       <p className="mt-7 border-t border-zinc-200 pt-5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -355,7 +377,7 @@ export function FinalCta({
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
             className="inline-flex min-h-12 items-center justify-center bg-zinc-950 px-5 text-sm font-bold text-white"
-            href="/contact"
+            href="https://cal.com/courtney-revada-i4wwtz/30min"
           >
             Book a Strategy Call
           </a>

@@ -98,6 +98,9 @@ export const engagements = [
   {
     title: 'Strategy Sprint',
     duration: '2–4 weeks',
+    price: '$7,500',
+    priceNote: 'Fixed fee',
+    cta: 'Start a Strategy Sprint →',
     copy: 'For organizations that need clarity before a major technology or AI investment.',
     includes: [
       'Stakeholder discovery',
@@ -161,6 +164,8 @@ export const caseStudies = [
       'A business-critical application faced growing complexity and increasing pressure to scale.',
     approach:
       'Improved frontend architecture, technical standards, collaboration, quality practices, and delivery workflows.',
+    targetOutcome:
+      'A more scalable platform foundation, clearer delivery standards, and a safer path for continued modernization.',
     capabilities: 'Architecture · Delivery · Quality',
   },
   {
@@ -170,6 +175,8 @@ export const caseStudies = [
       'A growing organization needed clearer leadership systems, accountability, and manager effectiveness.',
     approach:
       'Developed team structures, coaching practices, operating rhythms, quality expectations, and leadership frameworks.',
+    targetOutcome:
+      'Clearer ownership, stronger management rhythms, and a healthier operating system for predictable delivery.',
     capabilities: 'Team design · Coaching · Operations',
   },
   {
@@ -179,6 +186,8 @@ export const caseStudies = [
       'An organization had multiple AI ideas but no focused use case or implementation plan.',
     approach:
       'Identified the highest-value opportunity, defined the experience, selected the architecture, and created an MVP roadmap.',
+    targetOutcome:
+      'One focused, feasible MVP path tied to a valuable use case instead of disconnected experiments.',
     capabilities: 'Product strategy · AI · Architecture',
   },
 ];

@@ -8,6 +8,13 @@
       "scope:website"
     ],
     "targets": {
+      "serve": {
+        "continuous": true,
+        "command": "next dev",
+        "options": {
+          "cwd": "apps/website"
+        }
+      },
       "typecheck": {
         "dependsOn": [
           "^typecheck"

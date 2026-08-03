@@ -41,6 +41,30 @@ export default function ContactPage() {
               <br />
               Serving organizations across the United States.
             </p>
+            <div className="mt-8 border-t border-zinc-300 pt-8">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-rose-600">
+                Prefer a direct path?
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-600">
+                Book a 30-minute conversation now or email Courtney directly.
+              </p>
+              <div className="mt-5 grid gap-3">
+                <a
+                  className="font-bold text-zinc-950 transition hover:text-rose-600"
+                  href="https://cal.com/courtney-revada-i4wwtz/30min"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Book a 30-minute call →
+                </a>
+                <a
+                  className="font-bold text-zinc-950 transition hover:text-rose-600"
+                  href="mailto:revadacourtney@gmail.com"
+                >
+                  Email Courtney →
+                </a>
+              </div>
+            </div>
           </aside>
           <ContactForm />
         </div>

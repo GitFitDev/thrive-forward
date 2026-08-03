@@ -18,10 +18,10 @@ npm install
 ## Run the website locally
 
 ```bash
-npm exec nx -- run website:dev
+nx serve website
 ```
 
-Open [http://localhost:4200](http://localhost:4200) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 The development server supports hot reload, so saved changes appear without restarting the command.
 
@@ -166,12 +166,12 @@ anti-spam challenge in front of anonymous submissions.
 
 ## Common issues
 
-### Port 4200 is already in use
+### Port 3000 is already in use
 
-Stop the process using port 4200, or run Next.js with another port:
+Stop the process using port 3000, or run Next.js with another port:
 
 ```bash
-npm exec nx -- run website:dev -- --port 4300
+nx serve website -- --port 4300
 ```
 
 ### Nx reports that the workspace is out of sync

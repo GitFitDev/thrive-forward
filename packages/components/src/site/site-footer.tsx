@@ -33,7 +33,14 @@ export function SiteFooter({ year }: { year: number }) {
             <a href="/about">About</a>
             <a href="/insights">Insights</a>
             <a href="/contact">Contact</a>
-            <a href="https://www.linkedin.com/in/courtney-revada-3135ba13a/" rel="noreferrer">
+            <a href="mailto:revadacourtney@gmail.com">Email Courtney</a>
+            <a href="https://cal.com/courtney-revada-i4wwtz/30min">
+              Book a call
+            </a>
+            <a
+              href="https://www.linkedin.com/in/courtney-revada-3135ba13a/"
+              rel="noreferrer"
+            >
               LinkedIn
             </a>
           </div>

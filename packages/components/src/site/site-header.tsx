@@ -69,7 +69,7 @@ export function SiteHeader({ items }: { items: NavigationItem[] }) {
         </nav>
         <a
           className="ml-auto hidden rounded-sm bg-rose-600 px-5 py-3 text-xs font-bold text-white transition hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 xl:ml-2 xl:inline-flex"
-          href="/contact"
+          href="https://cal.com/courtney-revada-i4wwtz/30min"
         >
           Book a Strategy Call
         </a>
@@ -103,7 +103,7 @@ export function SiteHeader({ items }: { items: NavigationItem[] }) {
             ))}
             <a
               className="mt-5 inline-flex justify-center bg-rose-600 px-5 py-4 text-sm font-bold text-white sm:col-span-2"
-              href="/contact"
+              href="https://cal.com/courtney-revada-i4wwtz/30min"
             >
               Book a Strategy Call
             </a>
