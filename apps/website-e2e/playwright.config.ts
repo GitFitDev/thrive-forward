@@ -17,6 +17,7 @@ const baseURL = process.env['BASE_URL'] || `http://localhost:${e2ePort}`;
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
+  globalTeardown: './global-teardown.ts',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
@@ -25,12 +26,13 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `npm exec nx -- run website:dev -- --port ${e2ePort}`,
+    command: `node scripts/start-website-server.mjs ${e2ePort}`,
     url: `http://localhost:${e2ePort}`,
     reuseExistingServer: false,
-    cwd: workspaceRoot,
+    cwd: `${workspaceRoot}/apps/website-e2e`,
     env: {
       ...process.env,
+      NEXT_DIST_DIR: '.next-e2e',
       NEXT_PUBLIC_SUPABASE_URL: 'https://example.supabase.co',
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_test',
     },

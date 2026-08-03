@@ -27,7 +27,7 @@ test.describe('ThriveForward website', () => {
 
   test('submits the qualification form', async ({ page }) => {
     await page.route(
-      'https://example.supabase.co/rest/v1/inquiries**',
+      '**/rest/v1/inquiries**',
       async (route) => {
         expect(route.request().postDataJSON()).toMatchObject({
           name: 'Jordan Lee',
