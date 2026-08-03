@@ -59,7 +59,8 @@ export function ContactForm() {
       await submitInquiry(values);
       reset();
       setSubmitted(true);
-    } catch {
+    } catch (error) {
+      console.error('Inquiry submission failed.', error);
       setSubmissionError(
         'We could not send your inquiry right now. Please try again in a moment.',
       );

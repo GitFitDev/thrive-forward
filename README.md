@@ -150,8 +150,10 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your-key
 The publishable key is designed for browser use. Never add a Supabase secret
 key or legacy `service_role` key to a `NEXT_PUBLIC_` variable.
 
-For GitHub Pages deployment, create these repository Actions variables under
-**Settings → Secrets and variables → Actions → Variables**:
+The website includes the production project URL and publishable key as safe
+browser defaults. To override them for another GitHub Pages environment, create
+these repository Actions variables under **Settings → Secrets and variables →
+Actions → Variables**:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
