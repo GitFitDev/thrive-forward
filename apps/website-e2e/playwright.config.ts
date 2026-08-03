@@ -33,8 +33,8 @@ export default defineConfig({
     env: {
       ...process.env,
       NEXT_DIST_DIR: '.next-e2e',
-      NEXT_PUBLIC_SUPABASE_URL: 'https://example.supabase.co',
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_test',
+      NEXT_PUBLIC_SUPABASE_URL: '',
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: '',
     },
   },
   projects: [

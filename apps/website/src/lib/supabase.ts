@@ -7,9 +7,10 @@ const defaultSupabasePublishableKey =
 let browserClient: SupabaseClient | undefined;
 
 export function getSupabaseBrowserClient() {
-  const url = process.env['NEXT_PUBLIC_SUPABASE_URL'] ?? defaultSupabaseUrl;
+  const url =
+    process.env['NEXT_PUBLIC_SUPABASE_URL']?.trim() || defaultSupabaseUrl;
   const publishableKey =
-    process.env['NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY'] ??
+    process.env['NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY']?.trim() ||
     defaultSupabasePublishableKey;
 
   browserClient ??= createClient(url, publishableKey, {
