@@ -196,32 +196,44 @@ export const insights = [
   {
     category: 'AI Strategy',
     title: 'Why Most AI Strategies Never Become Real Products',
-    copy: 'The practical gap between experimentation and valuable implementation.',
+    copy: 'AI programs stall when teams begin with technology instead of a valuable workflow, a responsible owner, and a measurable business outcome. The strongest first investment is narrow enough to ship, useful enough to adopt, and important enough to evaluate honestly.',
+    takeaway:
+      'Fund the smallest use case that can prove meaningful value within 90 days.',
   },
   {
     category: 'Engineering Leadership',
     title: 'The Hidden Cost of an Unclear Engineering Organization',
-    copy: 'How ambiguity in ownership quietly slows delivery and erodes trust.',
+    copy: 'When ownership is ambiguous, decisions wait for consensus, important work moves between teams, and leaders receive status instead of accountability. Clear decision rights and explicit system ownership make delivery faster without asking people to work harder.',
+    takeaway:
+      'Every critical system and business outcome needs one clearly accountable owner.',
   },
   {
     category: 'Executive Advisory',
     title: 'When to Hire a Fractional VP of Engineering',
-    copy: 'The signals that senior embedded leadership could unlock your next stage.',
+    copy: 'Fractional leadership is useful when technical decisions have become executive decisions, delivery needs stabilization, or the organization is not yet ready for a permanent hire. The role should create clarity, strengthen leaders, and leave behind a durable operating system.',
+    takeaway:
+      'Use fractional leadership to build the conditions your eventual full-time leader will inherit.',
   },
   {
     category: 'Team Performance',
     title: 'Your Engineering Team Does Not Need More Meetings',
-    copy: 'Better operating rhythms begin with clarity, not calendar volume.',
+    copy: 'Meeting volume is often a symptom of unclear priorities, missing decision rights, and information that has no dependable home. Written updates, focused decision forums, and explicit escalation paths give teams more context while returning time for meaningful work.',
+    takeaway:
+      'Replace recurring status meetings with written visibility and meetings designed for decisions.',
   },
   {
     category: 'Digital Transformation',
     title: 'How to Move From AI Experimentation to Implementation',
-    copy: 'A focused framework for prioritizing and scaling useful AI.',
+    copy: 'Moving beyond experimentation requires more than a promising demo. Leaders need to prioritize use cases against business value, feasibility, risk, data readiness, and the willingness of real users to change how they work.',
+    takeaway:
+      'Evaluate adoption readiness alongside technical feasibility before committing to a build.',
   },
   {
     category: 'Leadership',
     title: 'Building High-Performing Teams Without Creating Burnout',
-    copy: 'Performance and sustainability belong in the same operating system.',
+    copy: 'Sustainable performance comes from clear priorities, realistic capacity, strong quality practices, and leaders who remove friction before asking for more effort. A team that depends on repeated heroics is exposing an operating problem, not demonstrating excellence.',
+    takeaway:
+      'Treat constant urgency as a system signal to investigate, not a culture to celebrate.',
   },
 ];
 

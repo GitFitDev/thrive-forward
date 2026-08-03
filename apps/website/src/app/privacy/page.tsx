@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { PageHero } from '@org/components/site';
+import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy information for the ThriveForward Consulting website.',
@@ -14,10 +14,6 @@ export default function PrivacyPage() {
         copy="How ThriveForward handles information provided through this website."
       />
       <article className="mx-auto max-w-3xl px-5 py-20 text-base leading-8 text-zinc-600 sm:px-8">
-        <p className="border-l-4 border-rose-600 bg-[#f3f1eb] p-5 font-semibold text-zinc-800">
-          Publication-ready placeholder: have qualified legal counsel review
-          this policy before launch.
-        </p>
         <h2 className="mt-12 text-2xl font-bold text-zinc-950">
           Information we collect
         </h2>

@@ -288,10 +288,12 @@ export function InsightCard({
   category,
   title,
   copy,
+  takeaway,
 }: {
   category: string;
   title: string;
   copy: string;
+  takeaway: string;
 }) {
   return (
     <article className="group border-t border-zinc-300 py-7">
@@ -302,9 +304,14 @@ export function InsightCard({
         {title}
       </h3>
       <p className="mt-4 text-sm leading-7 text-zinc-600">{copy}</p>
-      <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-zinc-400">
-        Sample insight · Coming soon
-      </p>
+      <div className="mt-6 border-l-2 border-rose-600 pl-4">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+          Key takeaway
+        </p>
+        <p className="mt-2 text-sm font-semibold leading-6 text-zinc-800">
+          {takeaway}
+        </p>
+      </div>
     </article>
   );
 }

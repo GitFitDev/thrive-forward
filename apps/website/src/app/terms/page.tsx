@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { PageHero } from '@org/components/site';
+import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description: 'Terms governing use of the ThriveForward Consulting website.',
@@ -14,10 +14,6 @@ export default function TermsPage() {
         copy="Terms governing access to and use of the ThriveForward Consulting website."
       />
       <article className="mx-auto max-w-3xl px-5 py-20 text-base leading-8 text-zinc-600 sm:px-8">
-        <p className="border-l-4 border-rose-600 bg-[#f3f1eb] p-5 font-semibold text-zinc-800">
-          Publication-ready placeholder: have qualified legal counsel review
-          these terms before launch.
-        </p>
         <h2 className="mt-12 text-2xl font-bold text-zinc-950">
           Using this website
         </h2>

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { FinalCta, PageHero, SectionHeader } from '@org/components/site';
+import speakerImage from '../../../assets/speaker.png';
 export const metadata: Metadata = {
   title: 'Engineering Leadership & AI Keynote Speaker',
   description:
@@ -25,13 +27,14 @@ export default function SpeakingPage() {
       />
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:px-12">
-          <div className="grid min-h-[460px] place-items-center border border-zinc-300 bg-[#f3f1eb]">
-            <div className="text-center">
-              <span className="text-6xl font-bold text-zinc-300">STAGE</span>
-              <p className="mt-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
-                Speaking photography forthcoming
-              </p>
-            </div>
+          <div className="relative min-h-[460px] overflow-hidden bg-zinc-950">
+            <Image
+              alt="Speaker presenting on stage with a handheld microphone"
+              className="object-cover object-center"
+              fill
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              src={speakerImage}
+            />
           </div>
           <div>
             <SectionHeader
